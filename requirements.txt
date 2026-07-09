@@ -1,0 +1,23 @@
+# --- Core agent framework ---
+langchain
+langgraph
+langchain-mcp-adapters
+langchain-groq
+
+# --- MCP (Model Context Protocol) ---
+mcp
+
+# --- RAG (retrieval) ---
+chromadb
+sentence-transformers
+
+# --- Data + visualization ---
+pandas
+matplotlib
+plotly       # used for the interactive auto-dashboard (zoom/hover charts)
+
+# --- Frontend ---
+streamlit
+
+# --- Utilities ---
+python-dotenv
