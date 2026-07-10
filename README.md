@@ -14,7 +14,7 @@ Supervisor Agent delegate to a Data Analyst Agent and a Visualization
 Agent in real time — with the full reasoning trail visible, not hidden
 behind a black box.
 
-🔗 **[Live demo](#)** &nbsp;·&nbsp; 📺 **[Architecture](#-how-it-works-architecture)** &nbsp;·&nbsp; 🚀 **[Quick start](#-setup-local)**
+🔗 **[Live demo](https://nexus-analyst-m3b3ksgokgfckjeiv4jm8u.streamlit.app)** &nbsp;·&nbsp; 📺 **[Architecture](#-how-it-works-architecture)** &nbsp;·&nbsp; 🚀 **[Quick start](#-setup-local)**
 
 > ⭐ If this project is useful or interesting to you, consider starring the repo — it helps others find it too.
 
