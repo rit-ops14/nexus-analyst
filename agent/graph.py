@@ -12,6 +12,8 @@ print("🟢🟢🟢 GRAPH.PY VERSION 3 LOADED 🟢🟢🟢")
 import asyncio
 import json
 import re
+import sys
+import os
 from typing import TypedDict, Annotated
 import operator
 
@@ -40,10 +42,20 @@ class AgentState(TypedDict):
 
 llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
 
+# Compute the MCP server's exact absolute path, and use the SAME Python
+# interpreter that's currently running this file (sys.executable) instead
+# of guessing "python" as a command name. This matters because different
+# environments (your laptop vs. Streamlit Cloud) may only expose "python3"
+# or a specific virtualenv path — sys.executable is always correct,
+# everywhere, since it's literally "whichever interpreter is running me."
+_AGENT_DIR = os.path.dirname(os.path.abspath(__file__))
+_PROJECT_ROOT = os.path.dirname(_AGENT_DIR)
+_MCP_SERVER_PATH = os.path.join(_PROJECT_ROOT, "mcp_server", "server.py")
+
 MCP_SERVER_CONFIG = {
     "data_tools": {
-        "command": "python",
-        "args": ["mcp_server/server.py"],
+        "command": sys.executable,
+        "args": [_MCP_SERVER_PATH],
         "transport": "stdio",
     }
 }
