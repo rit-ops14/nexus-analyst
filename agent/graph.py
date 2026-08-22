@@ -136,6 +136,24 @@ async def data_analyst_node(state: AgentState) -> dict:
         "steps_log": [f"📊 Data Analyst Agent ran: `{code}`"],
     }
 
+def _extract_base64(result):
+    if isinstance(result, str):
+        return result
+    if isinstance(result, tuple):
+        result = result[0]
+    if isinstance(result, list):
+        for item in result:
+            if isinstance(item, dict):
+                if item.get("type") == "image" and item.get("data"):
+                    return item["data"]
+                if item.get("type") == "text" and item.get("text"):
+                    return item["text"]
+            elif isinstance(item, str):
+                return item
+    if isinstance(result, dict):
+        return result.get("data") or result.get("text") or result.get("content")
+    return None
+
 
 async def visualization_node(state: AgentState) -> dict:
     client = MultiServerMCPClient(MCP_SERVER_CONFIG)
