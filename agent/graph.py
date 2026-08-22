@@ -177,7 +177,7 @@ async def visualization_node(state: AgentState) -> dict:
     code = _extract_code(code_response.content)
 
     raw_chart_result = await chart_tool.ainvoke({"code": code})
-chart = _extract_base64(raw_chart_result)
+    chart = _extract_base64(raw_chart_result)
 
     return {
         "chart_base64": chart,
