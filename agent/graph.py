@@ -158,7 +158,8 @@ async def visualization_node(state: AgentState) -> dict:
     code_response = llm.invoke(code_prompt)
     code = _extract_code(code_response.content)
 
-    chart = await chart_tool.ainvoke({"code": code})
+    raw_chart_result = await chart_tool.ainvoke({"code": code})
+chart = _extract_base64(raw_chart_result)
 
     return {
         "chart_base64": chart,
