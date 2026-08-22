@@ -40,7 +40,7 @@ class AgentState(TypedDict):
     final_answer: str
 
 
-llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
+llm = ChatGroq(model="openai/gpt-oss-120b", temperature=0)
 
 # Compute the MCP server's exact absolute path, and use the SAME Python
 # interpreter that's currently running this file (sys.executable) instead
